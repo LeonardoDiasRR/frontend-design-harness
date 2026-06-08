@@ -247,6 +247,36 @@ npx @21st-dev/cli@latest install cursor --api-key your_key_here
 
 ---
 
+## 7. UI/UX Design Tips Reference
+
+**File:** [`ui-ux-design-tips.html`](./ui-ux-design-tips.html)
+
+A mobile-first reference HTML document compiling 6 core UI/UX principles from Katherine Gilligan's **"Building with Good UX"** series (Parts 3–10). Includes inline SVG diagrams, comparison tables, checklists, and a quick-reference cheat sheet.
+
+### Topics Covered
+
+| # | Topic | Key Insight |
+|---|-------|-------------|
+| 1 | **Loading States** | Choose loading type by expected duration — skeleton screens beat blind spinners |
+| 2 | **Forms** | 6 commandments: inline feedback, show/hide password, enabled button, micro-interactions, input masks, clear error messages |
+| 3 | **Empty States** | First impression matters — illustrate, give action, educate. Never leave a blank screen |
+| 4 | **Partial States** | Prioritize critical content. Show what's ready while the rest loads |
+| 5 | **Graceful Degradation** | Fail with elegance — offline mode, reduced functionality, friendly messages |
+| 6 | **Consistency & Authenticity** | Transparency builds trust. Quality > frequency |
+
+### How to Use
+
+1. Open `ui-ux-design-tips.html` in any browser (mobile or desktop)
+2. Browse by topic — each section is self-contained with SVG diagrams and practical checklists
+3. Use the **Cheat Sheet** at the bottom for a quick reminder of all 6 principles
+4. Reference during UI reviews, design discussions, or as a checklist before shipping features
+
+### Credits
+
+Based on the **"Building with Good UX"** series by [Katherine Gilligan](https://www.instagram.com/synsation_/) (@synsation_) — Parts 3–10, May–June 2026.
+
+---
+
 ## References
 
 | Resource | Link |
