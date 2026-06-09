@@ -145,7 +145,61 @@ AVOID: Neon colors, harsh animations, AI purple/pink gradients
 
 ---
 
-## 4. Component Generation — 21st.dev Magic MCP
+## 4. Motion Design — Design Motion Principles Skill
+
+**Type:** AI Skill  
+**Repository:** https://github.com/kylezantos/design-motion-principles  
+**Install:** `npx skills add kylezantos/design-motion-principles`
+
+A motion and interaction design skill with **two modes** — **Create** (build interactive components with purposeful motion) and **Audit** (review existing animations). It provides context-aware guidance distilled from three distinct motion-design philosophies: **Emil Kowalski** (restraint & speed), **Jakub Krehel** (production polish), and **Jhey Tompkins** (creative experimentation).
+
+The skill weights each lens by your project context instead of applying one philosophy everywhere.
+
+### Key capabilities
+
+| Feature | Description |
+|---------|-------------|
+| **Create mode** | Build interactive components with motion baked in — React, Framer Motion, CSS, or HTML |
+| **Audit mode** | Review existing motion design with a motion-gap analysis and anti-AI-slop checklist |
+| **3 designer lenses** | Context-aware weighting of Emil Kowalski, Jakub Krehel, and Jhey Tompkins |
+| **Anti-slop checklist** | Flags AI-generated motion tells: pulsing indicators, hover-scale-on-everything, stagger-spam |
+| **HTML audit report** | Self-contained HTML with auto-looping CSS demos beside each finding |
+| **Motion cookbook** | Consolidated recipe library: enter/exit, easing, springs, clip-path, FLIP, scroll-driven |
+| **Creation gotchas** | Self-check against common AI motion failure modes |
+
+### Installation
+
+```bash
+npx skills add kylezantos/design-motion-principles
+```
+
+Or manually:
+
+```bash
+git clone https://github.com/kylezantos/design-motion-principles.git
+cp -r design-motion-principles/skills/design-motion-principles ~/.claude/skills/
+```
+
+### Typical usage
+
+Describe your motion needs in natural language:
+
+```
+Add a polished enter/exit animation to this modal
+Build an animated toast component for this dashboard
+Audit the motion design in this codebase
+```
+
+### Workflow integration
+
+1. **Create** — Ask the agent to build a component with purposeful motion
+2. The skill runs a light discovery (project context + lens weighting)
+3. Generates components with the right recipes, accessibility, and performance defaults
+4. **Audit** — Ask for a review and get a branded HTML report with visual demos
+
+---
+
+## 5. Component Generation — 21st.dev Magic MCP
 
 **Type:** MCP Server  
 **Repository:** https://github.com/21st-dev/magic-mcp  
@@ -210,13 +264,14 @@ npx @21st-dev/cli@latest install cursor --api-key your_key_here
 
 ---
 
-## 5. Per-project setup checklist
+## 6. Per-project setup checklist
 
 ```markdown
 [ ] Initialize project with Vite + React + TypeScript
 [ ] Install Motion (framer-motion) for animations
 [ ] Install and configure Tailwind CSS v4
 [ ] Add UI/UX Pro Max skill to agent environment
+[ ] Add Design Motion Principles skill to agent environment
 [ ] Configure 21st.dev Magic MCP server for component generation
 [ ] Register design system tokens (colors, typography, spacing)
 ```
@@ -225,6 +280,7 @@ npx @21st-dev/cli@latest install cursor --api-key your_key_here
 
 ```markdown
 [ ] @nextlevelbuilder/ui-ux-pro-max-skill — Design intelligence
+[ ] kylezantos/design-motion-principles — Motion design
 [ ] 21st.dev Magic MCP — Component generation
 [ ] Motion — Animations and gestures
 [ ] Tailwind CSS v4 — Utility-first styling
@@ -234,20 +290,21 @@ npx @21st-dev/cli@latest install cursor --api-key your_key_here
 
 ---
 
-## 6. Workflow example
+## 7. Workflow example
 
 ```
 1. You: "Create a SaaS landing page for an AI analytics startup"
 2. Agent loads UI/UX Pro Max → generates design system:
    - Color palette, typography, layout pattern
-3. Motion → animated hero with staggered fade-in cards
+3. Design Motion Principles → Motion components with purposeful animation
+   - Create mode: enter/exit, scroll reveals, micro-interactions
 4. 21st.dev Magic MCP → responsive nav bar, pricing table
 5. Result: polished, animated, production-ready page in minutes
 ```
 
 ---
 
-## 7. UI/UX Design Tips Reference
+## 8. UI/UX Design Tips Reference
 
 **File:** [`ui-ux-design-tips.html`](./ui-ux-design-tips.html)
 
@@ -277,7 +334,7 @@ Based on the **"Building with Good UX"** series by [Katherine Gilligan](https://
 
 ---
 
-## References
+## 9. References
 
 | Resource | Link |
 |----------|------|
@@ -285,6 +342,7 @@ Based on the **"Building with Good UX"** series by [Katherine Gilligan](https://
 | Motion Documentation | https://motion.dev/docs/react-quick-start |
 | UI/UX Pro Max Skill | https://github.com/nextlevelbuilder/ui-ux-pro-max-skill |
 | UI/UX Pro Max Website | https://uupm.cc |
+| Design Motion Principles | https://github.com/kylezantos/design-motion-principles |
 | 21st.dev Magic MCP | https://github.com/21st-dev/magic-mcp |
 | 21st.dev Website | https://21st.dev/magic |
 | Tailwind CSS | https://tailwindcss.com |
@@ -292,7 +350,7 @@ Based on the **"Building with Good UX"** series by [Katherine Gilligan](https://
 
 ---
 
-## Inspiration
+## 10. Inspiration
 
 This project was inspired by the Anthropic engineering paper:
 
@@ -303,7 +361,7 @@ And follows the same harness pattern established by [dev-harness](https://github
 
 ---
 
-## To Do
+## 11. To Do
 
 - [ ] **Component library integration guide** — Add step-by-step for combining 21st.dev Magic output with shadcn/ui or other component libraries
 - [ ] **Animation pattern library** — Reusable Motion animation recipes (page transitions, scroll reveals, staggered lists)
