@@ -264,6 +264,64 @@ npx @21st-dev/cli@latest install cursor --api-key your_key_here
 
 ---
 
+## 5.1. Additional Agent Skills — Visual Polish, Icons & Writing
+
+These five complementary skills extend the harness beyond layout and component generation. Install only the skills needed for your workflow; they are **agent instructions and tools**, not React runtime dependencies.
+
+| Skill | Source | Role |
+|---|---|---|
+| **frontend-design** | [Anthropic](https://github.com/anthropics/skills/tree/main/skills/frontend-design) | Establish a distinctive aesthetic direction, typography, visual hierarchy, and layout instead of generic AI-generated UI. |
+| **make-interfaces-feel-better** | [Jakub Krehel](https://github.com/jakubkrehel/make-interfaces-feel-better) | Refine interface details: hover states, spacing, optical alignment, shadows, radii, interaction targets, and animation. |
+| **better-icons** | [better-auth](https://github.com/better-auth/better-icons) | Search icon collections and retrieve consistent SVG icons via CLI or MCP. |
+| **humanizer** | [blader](https://github.com/blader/humanizer) | Edit text to remove repetitive, generic AI writing patterns while preserving facts and intended meaning. |
+| **anti-ai-slop-writing** | [Jalaaldeen](https://github.com/jalaalrd/anti-ai-slop-writing) | Review and refine UI copy, documentation, and product writing for formulaic phrasing, unsupported claims, and repetitive structure. |
+
+> **Naming note:** The requested `make-interface-feel-better` corresponds to the upstream skill named **`make-interfaces-feel-better`** (plural). Use the exact upstream name for installation.
+
+### Installation
+
+Use the [Skills CLI](https://skills.sh/) in a supported agent environment. Review upstream `SKILL.md` files and their licenses before installation; CLI flags and target agent support can change.
+
+```bash
+npx skills add anthropics/skills --skill frontend-design
+npx skills add jakubkrehel/make-interfaces-feel-better
+npx skills add better-auth/better-icons
+npx skills add blader/humanizer
+```
+
+For **anti-ai-slop-writing**, use the upstream [installation instructions](https://github.com/jalaalrd/anti-ai-slop-writing): install through its Claude Code plugin marketplace or copy the skill folder containing `SKILL.md` into your agent's skills directory. Check the selected agent's supported directory convention (for example, `~/.claude/skills/` or `~/.agents/skills/`).
+
+**Better Icons** can also run as a CLI or MCP server:
+
+```bash
+npx better-icons search "settings" --limit 10
+npx better-icons get lucide:settings > settings.svg
+npx better-icons setup
+```
+
+The optional MCP setup is separate from the skill installation.
+
+### Recommended usage order
+
+1. **Design direction:** `UI/UX Pro Max` generates design-system options; `frontend-design` makes the visual direction intentional and distinctive.
+2. **Components:** `21st.dev Magic MCP`, `shadcn/ui`, and Tailwind implement the design.
+3. **Icons:** `better-icons` finds SVGs from a consistent icon family. Review SVG assets before adding them to the app.
+4. **Interaction polish:** `make-interfaces-feel-better` refines states, spacing, and affordances; `Design Motion Principles` and Motion handle purposeful animation.
+5. **Content:** `humanizer` refines natural language, while `anti-ai-slop-writing` performs a further editorial pass. Preserve terminology, accuracy, citations, and accessibility; do not invent facts.
+6. **Review:** Test responsive behavior, keyboard access, contrast, reduced-motion preferences, loading and empty states.
+
+**Example prompts:**
+
+```text
+Design a distinctive admin dashboard with frontend-design and UI/UX Pro Max.
+Polish this settings page using make-interfaces-feel-better; preserve its behavior.
+Use better-icons to find a consistent Lucide icon set for this navigation.
+Rewrite button labels, empty states, and onboarding copy with humanizer;
+then audit the copy with anti-ai-slop-writing without changing technical facts.
+```
+
+---
+
 ## 6. Per-project setup checklist
 
 ```markdown
@@ -272,6 +330,9 @@ npx @21st-dev/cli@latest install cursor --api-key your_key_here
 [ ] Install and configure Tailwind CSS v4
 [ ] Add UI/UX Pro Max skill to agent environment
 [ ] Add Design Motion Principles skill to agent environment
+[ ] Add frontend-design and make-interfaces-feel-better skills
+[ ] Add better-icons skill (and optionally its CLI/MCP integration)
+[ ] Add humanizer and anti-ai-slop-writing for interface copy and documentation
 [ ] Configure 21st.dev Magic MCP server for component generation
 [ ] Register design system tokens (colors, typography, spacing)
 ```
@@ -280,6 +341,11 @@ npx @21st-dev/cli@latest install cursor --api-key your_key_here
 
 ```markdown
 [ ] @nextlevelbuilder/ui-ux-pro-max-skill — Design intelligence
+[ ] anthropics/skills (frontend-design) — Distinctive design direction
+[ ] jakubkrehel/make-interfaces-feel-better — UI detail polish
+[ ] better-auth/better-icons — SVG icon discovery
+[ ] blader/humanizer — Natural language polish
+[ ] jalaalrd/anti-ai-slop-writing — Editorial quality checks
 [ ] kylezantos/design-motion-principles — Motion design
 [ ] 21st.dev Magic MCP — Component generation
 [ ] Motion — Animations and gestures
@@ -299,7 +365,9 @@ npx @21st-dev/cli@latest install cursor --api-key your_key_here
 3. Design Motion Principles → Motion components with purposeful animation
    - Create mode: enter/exit, scroll reveals, micro-interactions
 4. 21st.dev Magic MCP → responsive nav bar, pricing table
-5. Result: polished, animated, production-ready page in minutes
+5. better-icons → consistent SVG icons; make-interfaces-feel-better → UI details
+6. humanizer + anti-ai-slop-writing → clear, natural product copy
+7. Result: polished, animated, production-ready page with reviewed text
 ```
 
 ---
@@ -339,6 +407,11 @@ Based on the **"Building with Good UX"** series by [Katherine Gilligan](https://
 | Resource | Link |
 |----------|------|
 | Motion (Framer Motion) | https://github.com/framer/motion |
+| frontend-design | https://github.com/anthropics/skills/tree/main/skills/frontend-design |
+| make-interfaces-feel-better | https://github.com/jakubkrehel/make-interfaces-feel-better |
+| better-icons | https://github.com/better-auth/better-icons |
+| humanizer | https://github.com/blader/humanizer |
+| anti-ai-slop-writing | https://github.com/jalaalrd/anti-ai-slop-writing |
 | Motion Documentation | https://motion.dev/docs/react-quick-start |
 | UI/UX Pro Max Skill | https://github.com/nextlevelbuilder/ui-ux-pro-max-skill |
 | UI/UX Pro Max Website | https://uupm.cc |
